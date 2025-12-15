@@ -216,7 +216,7 @@ incrbyfloat key value
 
 
 ### 2.2.9 setnx
-setnx在设置string的时候，如果key存在则回设置失败，如果key不存在擦灰设置成功。
+setnx在设置string的时候，如果key存在则回设置失败，如果key不存在则设置成功。
 <table><tr><td bgcolor="black">
 <font color=white>
 # num存在</br>

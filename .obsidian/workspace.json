@@ -1,0 +1,197 @@
+{
+  "main": {
+    "id": "2d7f75604ff836db",
+    "type": "split",
+    "children": [
+      {
+        "id": "f0b822b94bfb028c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ca0c669afb6f8409",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "数据库/Redis/18_布隆过滤器.md",
+                "mode": "source",
+                "source": false
+              },
+              "icon": "lucide-file",
+              "title": "18_布隆过滤器"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "224e208902ad5635",
+    "type": "split",
+    "children": [
+      {
+        "id": "b0df6ef4689f68a0",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c8bfa710976a518f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "文件列表"
+            }
+          },
+          {
+            "id": "a3a054d81282cf0f",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              },
+              "icon": "lucide-search",
+              "title": "搜索"
+            }
+          },
+          {
+            "id": "f1d1d5ab565fbc55",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "书签"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "a8c06db9851f421a",
+    "type": "split",
+    "children": [
+      {
+        "id": "042b28746e335a7c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "738a3fc9733a655f",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "linux系统/0_相关网址.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-coming-in",
+              "title": "0_相关网址 的反向链接列表"
+            }
+          },
+          {
+            "id": "4860c2fe02ce6792",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "linux系统/0_相关网址.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              },
+              "icon": "links-going-out",
+              "title": "0_相关网址 的出链列表"
+            }
+          },
+          {
+            "id": "1fb7c563675ff4fa",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-tags",
+              "title": "标签"
+            }
+          },
+          {
+            "id": "ab697024f9a9c87b",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "linux系统/0_相关网址.md",
+                "followCursor": false,
+                "showSearch": false,
+                "searchQuery": ""
+              },
+              "icon": "lucide-list",
+              "title": "0_相关网址 的大纲"
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "bases:创建新数据库": false
+    }
+  },
+  "active": "ca0c669afb6f8409",
+  "lastOpenFiles": [
+    "数据库/Redis/2_Redis类型操作命令.md",
+    "数据库/Redis/18_布隆过滤器.md",
+    "数据库/Redis/5_Redis持久化.md",
+    "数据库/Redis/8_Redis逐出算法.md",
+    "数据库/Redis/4_Redis配置文件.md",
+    "数据库/Redis/9_Redis高级数据类型.md",
+    "未命名",
+    "数据库/Redis/10_Redis主从复制.md",
+    "数据库/Redis/11_Redis哨兵.md",
+    "数据库/Redis/12_stream相关.md",
+    "数据库/Redis/14_缓存击穿.md",
+    "数据库/Redis/1_Redis介绍.md",
+    "数据库/Redis/13_消息发布订阅.md",
+    "linux系统/0_相关网址.md",
+    "README.md",
+    "go/ETH接入/100_类型.md",
+    "工具使用/3_scons编译工具.md",
+    "UE/8_Pawn.md",
+    "UE/2_UE中的名词和术语.md",
+    "工具使用/8_tinyxml2使用.md",
+    "go/go-xorm框架/2_xorm数据库操作.md",
+    "网络/3.网络相关命令.md"
+  ]
+}

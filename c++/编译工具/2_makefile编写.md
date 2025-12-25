@@ -68,3 +68,47 @@ gcc -c <源文件> -Wall -o <目标文件>
 ```shell
 gcc -c <源文件> -g -o <目标文件>
 ```
+
+# 3 makefile示例
+
+**编译执行文件**:
+
+```makefile
+# 目标文件
+TARGET := test
+
+# 源文件
+SRCS :=
+SRCS += main.cpp
+SRCS += tools.cpp
+
+# 中间对象
+OBJ := $(subst .cpp,.o,$(SRCS) )
+
+# 寻找头文件的路径
+INCLUDE_DIR :=
+INCLUDE_DIR += -I ./
+
+# 寻找库文件路径
+LIB_PATH :=
+LIB_PATH += -L /usr/local/lib
+
+# 宏定义
+DEFINE :=
+DEFINE += -D STB_IMAGE_WRITE_IMPLEMENTATION
+
+# 编译命令
+CXX = g++
+
+# 编译选项
+CXXFLAGS = -std=c++23 -Wall -Wextra
+
+$(TARGET):$(OBJ)
+	$(CXX) $^ $(CXXFLAGS) -o $@
+
+%.o:%.cpp
+	$(CXX) -c $^ $(INCLUDE_DIR) $(CXXFLAGS) $(DEFINE) -o $@
+
+clean:
+	-rm $(OBJ) $(TARGET)
+```

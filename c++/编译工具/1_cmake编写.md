@@ -51,6 +51,18 @@ add_executable(
     <源文件2>
     <源文件3>
     ...)
+
+#--------------------------------------------------------------------
+
+# 也可以通过以下方式获取项目下的所有源文件
+# 递归目录获取所有源码文件
+file(GLOB_RECURSE SOURCES CONFIGURE_DEPENDS
+        "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+)
+# 排除cmake 编译目录下的文件
+list(FILTER SOURCES EXCLUDE REGEX
+        "${CMAKE_CURRENT_BINARY_DIR}/.*"
+)
 ```
 
 **生成库文件**：

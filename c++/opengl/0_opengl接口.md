@@ -3,7 +3,9 @@
 # 1 glClearColor
 **作用**：设置用于刷新像素的颜色，在绘制缓冲区的数据在界面展示完成之后，需要把绘制缓冲区的数据清除，这个函数用于指定使用什么颜色来刷新绘制缓冲区的颜色。
 最终的原始是三原色的混合颜色
+
 **原型**：void glClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)
+
 **参数**：
   - red：红色分量的值，范围[0, 1]，值越大颜色越红
   - green：绿色分量的值，范围[0, 1]，值越大颜色越绿
@@ -12,13 +14,16 @@
 
 # 2 glClear
 **作用**：清除指定缓冲区的数据
+
 **原型**：void glClear(GLbitfield mask)
+
 **参数**：
   - mask：指定清除的缓冲区，
     GL_COLOR_BUFFER_BIT：清除颜色缓冲区，会将颜色缓冲区中的每个像素都设置为通过 glClearColor 指定的颜色。通常用于清屏，将屏幕背景设置为某种颜色。
     GL_DEPTH_BUFFER_BIT：清除深度缓冲区，glClear 会将深度缓冲区中的每个像素都设置为通过 glClearDepth 指定的深度值。通常用于在开始新的渲染帧时重置深度信息。
     GL_STENCIL_BUFFER_BIT：清除模板缓冲区,glClear 会将模板缓冲区中的每个像素都设置为通过 glClearStencil 指定的值。用于重置模板测试相关的信息。
     这三个缓冲区类型可以通过或符号来运算，用于表示同时清除指定的缓冲区
+
 **示例**：
 ```c++
 glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT|GL_STENCIL_BUFFER_BIT);
@@ -26,25 +31,33 @@ glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT|GL_STENCIL_BUFFER_BIT);
 
 # 3 glClearDepth
 **作用**：用于指定在使用 glClear 函数清除深度缓冲区时，深度缓冲区将被设置为的指定的深度值。
+
 **原型**：void glClearDepth(GLdouble depth)
+
 **参数**：
   - depth: 这是一个指定深度缓冲区清除值的参数。它是一个双精度浮点数，通常范围在 [0.0, 1.0] 之间。0.0 表示最接近观察者的位置，而 1.0 表示最远的位置。
+
 **使用场景**：在3D图形渲染中，每一帧开始时通常需要清除深度缓冲区，以确保不会有前一帧的深度信息残留，干扰当前帧的渲染。
 
 # 4 glGenBuffers
 **作用**：生成一个或多个缓冲区对象，这些缓冲区对象通常用于存储顶点数据、索引数据或其他与渲染相关的数据。
 虽然 glGenBuffers 生成了缓冲区对象的名称，但它们尚未与任何数据或具体的缓冲区类型关联。要实际使用这些缓冲区对象，通常需要通过 glBindBuffer 绑定到特定的缓冲区目标（如 GL_ARRAY_BUFFER 或 GL_ELEMENT_ARRAY_BUFFER），然后再使用其他函数（如 glBufferData）来填充数据。
+
 **原型**：void glGenBuffers(GLsizei n, GLuint *buffers)
+
 **参数**：
   - n: 需要生成的缓冲区对象的个数
   - buffers：指向一个数组的指针，该数组将存储生成的缓冲区对象的标识符。
 
 # 5 glGenVertexArrays
 **作用**：生成一个或多个顶点数组对象（VAO）。VAO 是一个容器对象，它存储与顶点属性相关的状态（如顶点缓冲对象、顶点属性指针等）。通过使用 VAO，你可以将所有与顶点数组相关的状态绑定到一个对象上，从而简化后续的渲染过程。
+
 **原型**：void glGenVertexArrays(GLsizei n, GLuint *arrays)
+
 **参数**：
   - **n**: 指定要生成的 VAO 的数量。
   - **arrays**: 一个 GLuint 类型的数组，用于存储生成的 VAO 的 ID。
+
 **示例**：
 ```c++
 unsigned int VBO, VAO;
@@ -61,18 +74,23 @@ unsigned int VBO, VAO;
 
 # 6 glBindVertexArray
 **作用**：用于绑定一个顶点数组对象（VAO）。通过绑定 VAO，OpenGL 将其设为当前的 VAO，并且所有与顶点数组相关的操作（如设置顶点属性、绑定顶点缓冲对象等）都会影响到这个绑定的 VAO。
+
 **原型**：void glBindVertexArray(GLuint array)
+
 **参数**：
   - **array**: 需要绑定的 VAO 的 ID。如果传入 0，则表示解绑当前的 VAO，这意味着后续的顶点数组操作不再影响任何 VAO。
 
 # 6 glBindBuffer
 **作用**：将缓冲区对象绑定到指定的缓冲区目标
+
 **原型**：void glBindBuffer(GLenum target, GLuint buffer)
+
 **参数**：
   - target：缓冲区目标
     - **GL_ARRAY_BUFFER**：顶点缓冲区
     - **GL_ELEMENT_ARRAY_BUFFER**：
   - buffer：创建的缓冲区对象的句柄, 其值为`glGenBuffers`方法创建的缓冲区对象。如果为0，表示解绑指定的缓冲区目标
+
 **示例**：
 ```c++
 GLuint VBO;
@@ -90,7 +108,9 @@ glBindBuffer(GL_ARRAY_BUFFER, VBO); // 将顶点缓冲对象绑定到GL_ARRAY_BU
 
 # 7 glBufferData
 **作用**：向指定的缓冲区目标所绑定的缓冲区对象中分配内存并填充数据。这个函数通常用于上传顶点数据、索引数据等到 GPU 以供后续渲染使用。
+
 **原型**：void glBufferData(GLenum target, GLsizeiptr size, const void *data, GLenum usage)
+
 **参数**：
   - target：指定目标缓冲区对象的类型。
     - **GL_ARRAY_BUFFER**：表示顶点缓冲区对象，用于存储顶点属性数据。
@@ -106,7 +126,9 @@ glBindBuffer(GL_ARRAY_BUFFER, VBO); // 将顶点缓冲对象绑定到GL_ARRAY_BU
 
 # 8 glVertexAttribPointer
 **作用**: 指定顶点属性数组的信息，并将其与当前绑定的顶点缓冲对象（VBO）关联起来。该函数是顶点属性配置的重要步骤，它告诉 OpenGL 如何解释存储在 VBO 中的顶点数据。
+
 **原型**: void glVertexAttribPointer(GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, const void *pointer)
+
 **参数**: 
   - **index**: 指定顶点属性的索引（即着色器中的位置）
   - **size**: 指定顶点属性的分量个数。有效值为 1 到 4 之间。例如，如果每个顶点的颜色由 R, G, B 三个分量组成，那么 size 就是 3。
@@ -117,6 +139,7 @@ glBindBuffer(GL_ARRAY_BUFFER, VBO); // 将顶点缓冲对象绑定到GL_ARRAY_BU
   - **normalized**: 指定当数据类型为整型时，是否将其映射到 [0, 1]（无符号类型）或 [-1, 1]（有符号类型）的浮点范围。如果设置为 GL_TRUE，数据会被归一化；如果为 GL_FALSE，数据将保持原样。
   - **stride**: 指定连续顶点属性之间的字节偏移量。简单来说，就是每个顶点的总字节数（包括所有属性）。如果属性是紧密排列的，可以设置为 0，OpenGL 会自动计算正确的步幅。
   - **pointer**: 指定数组中第一个顶点属性的偏移量（通常是相对于数组起始位置的字节偏移）。对于存储在 VBO 中的顶点数据，这个值通常是 0 或者一个字节偏移量。
+
 **示例**：
 ```c++
 glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
@@ -134,16 +157,21 @@ glVertexAttribPointer(textureIndex, 2, GL_FLOAT, GL_FALSE, 2*sizeof(GL_FLOAT), v
 
 # 8 glCreateShader
 **作用**：创建着色器
+
 **原型**： GLuint glCreateShader(GLenum type)
+
 **参数**：
   - type: 指定创建的着色器类型
     - **GL_VERTEX_SHADER**: 创建顶点着色器
     - **GL_FRAGMENT_SHADER**：创建片段着色器
+
 **返回值**：返回创建的shader的句柄
 
 # 9 glShaderSource
 **作用**: 向着色器代码设置到创建的shader中
+
 **原型**: void glShaderSource(GLuint shader, GLsizei count, const GLchar *const*string, const GLint *length)
+
 **参数**：
   - **shader**: glCreateShader方法创建着色器程序
   - **count**: 着色器代码的字符串数量。也就是说，你可以通过这个参数指定有多少个字符串片段需要传递给着色器
@@ -174,14 +202,18 @@ glShaderSource(vertexShader, 2, shaderSources, lengths);
 ```
 
 # 11 glCompileShader
+
 **作用**： 编译着色器
+
 **原型**: void glCompileShader(GLuint shader)
 **参数**：
   - **shader**: glCreateShader方法创建的shader对象的句柄
 
 # 12 glGetShaderiv
 **作用**: 用于查询着色器对象状态的一个函数。它可以获取与指定着色器对象相关的各种信息，如编译状态、着色器源码的长度等
+
 **原型**: void glGetShaderiv(GLuint shader, GLenum pname, GLint *params)
+
 **参数**：
   - **shader**: shader对象
   - **pname**：指定要查询的着色器属性
@@ -190,6 +222,7 @@ glShaderSource(vertexShader, 2, shaderSources, lengths);
     - GL_INFO_LOG_LENGTH: 获取编译日志的长度。
     - GL_SHADER_SOURCE_LENGTH： 获取着色器源码的长度。
   - **params**: 传出参数，用于获取查询的shader属性信息
+
 **示例**：
 ```c++
 unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
@@ -203,12 +236,15 @@ glGetShaderiv(vertexShader, GL_COMPILE_STATUS, &success);
 
 # 13 glGetShaderInfoLog
 **作用**： 获取着色器编译日志
+
 **原型**：void glGetShaderInfoLog(GLuint shader, GLsizei bufSize, GLsizei *length, GLchar *infoLog)
+
 **参数**：
   - **shader**: 着色器句柄
   - **bufSize**: 指定infoLog缓存的最大大小（读取日志的最大长度）
   - **length**: 用于存储实际写入 infoLog 的字符串长度（不包括空终止符）。如果不需要该长度信息，可以传递 NULL
   - **infoLog**: 指向一个字符数组的指针，该数组用于存储函数返回的信息日志。如果编译或链接过程中没有生成信息日志，返回的 infoLog 将是一个空字符串。
+
 **示例**:
 ```c++
 GLint success;
@@ -222,24 +258,31 @@ if (!success)
 
 # 14 glCreateProgram
 **作用**：创建着色器程序对象
+
 **原型**：GLuint glCreateProgram()
 
 # 15 glAttachShader
 **作用**：将着色器对象添加到程序对象中
+
 **原型**：void glAttachShader(GLuint program, GLuint shader)
+
 **参数**：
   - **program**: 程序对象
   - **shader**: 需要被添加到程序上的着色器对象
 
 # 16 glLinkProgram
 **作用**: 链接程序，将添加到程序上的顶点和片段着色器一起组成一个渲染管线程序
+
 **原型**： void glLinkProgram(GLuint program)
+
 **参数**：
   - **program**: 需要被链接的程序对象
 
 # 17 glGetProgramiv
 **作用**: 获取程序对象的相关信息
+
 **原型**： void glGetProgramiv(GLuint program, GLenum pname, GLint *params)
+
 **参数**：
   - **program**： 需要检查的程序对象
   - **pname**: 指明需要检查的信息类型
@@ -253,12 +296,15 @@ if (!success)
 
 # 18 glGetProgramInfoLog
 **作用**： 查询链接程序中的日志
+
 **原型**：void glGetProgramInfoLog(GLuint program, GLsizei bufSize, GLsizei *length, GLchar *infoLog)
+
 **参数**：
   - **program**： 需要查看日志的程序对象
   - **bufSize**: 指定查询日志内容的最大大小
   - **length**: 传出参数，函数将返回实际写入 infoLog 的字符数。如果你不关心这个值，可以传递 NULL。
   - **infoLog**: 用于存储获取到的日志信息。你需要为这个指针分配足够的空间来容纳日志内容。
+
 **示例**
 ```c++
 char infoLog[512];
@@ -267,19 +313,25 @@ glGetProgramInfoLog(shaderProgram, 512, NULL, infoLog);
 
 # 19 glDeleteShader
 **参数**： 删除着色器对象
+
 **原型**： void glDeleteShader(GLuint shader)
+
 **参数**： 
   - **shader**: 需要删除的着色器对象
 
 # 20 glDeleteProgram
 **参数**： 删除程序对象
+
 **原型**： void glDeleteProgram(GLuint program)
+
 **参数**： 
   - **program**：需要删除的程序对象
 
 # 21 glDrawElements
 **作用**：绘制图元
+
 **原型**：void glDrawArrays(GLenum mode, GLint first, GLsizei count)
+
 **参数**：
   - **mode**：根据当前绑定的顶点数据绘制图元（如点、线、三角形等）
     - GL_TRIANGLES: 绘制三角形图元

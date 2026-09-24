@@ -19,7 +19,7 @@ cargo --version
 rustup --version
 ```
 
-- 还需要安装Visual Studio Community， 安装是需要勾选Windows 10/11 SDK和 MSVC，
+- 还需要安装Visual Studio Community， 安装时需要勾选Windows 10/11 SDK和 MSVC，
 在Visual Studio Installer中需要安装“使用C++桌面开发”，修改后需要重启电脑
 
 然后执行以下命令
